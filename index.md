@@ -1,2 +1,2 @@
 # IamMI Blog
-Hello! My name is IamMI.
+Hello! My name is IamMI. Bye
