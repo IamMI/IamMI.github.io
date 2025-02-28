@@ -1,4 +1,3 @@
-![Markdown Logo](./image/cover.jpg)
 
 # Introduction
 I am an undergraduate at School of Electronics, Nanjing University. I focus on lightweight deep learning, particularly in the field of AIGC, with an emphasis on image and video generation.
