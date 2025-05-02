@@ -1,11 +1,11 @@
-![Markdown Logo](./image/preference.png)
+![Markdown Logo](./image/preference.jpg)
 
 # Introduction
 I am an undergraduate at School of Electronics, Nanjing University. I focus on lightweight deep learning, multi-Agent reinforce learning.
 
 # Find Me Online
 - ![GitHub](./image/github.ico) [IamMI.github.com](https://github.com/IamMI)
-- ![Zhihu](./image/favicon.ico) [是米酱](https://www.zhihu.com/people/46-29-1-15)
+- ![Zhihu](./image/zhihu.ico) [是米酱](https://www.zhihu.com/people/46-29-1-15)
 
 # Notes
 I will release my study materials next.
