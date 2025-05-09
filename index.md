@@ -73,7 +73,7 @@
     动手学强化学习
   </a></p>
   <p>This leason is friendly to students who need solid mathematic base.👉
-  <a href="https://westlakeu-my.sharepoint.com/personal/lyujialing_westlake_edu_cn/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Flyujialing%5Fwestlake%5Fedu%5Fcn%2FDocuments%2F%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%95%B0%E5%AD%A6%E5%8E%9F%E7%90%86%E4%B9%A6%E7%B1%8D2023%2E08%2Epdf&parent=%2Fpersonal%2Flyujialing%5Fwestlake%5Fedu%5Fcn%2FDocuments&ga=1" target="_blank">
+  <a href="https://zhuanlan.zhihu.com/p/552853273" target="_blank">
     Mathematical Foundations of Reinforcement Learning
   </a>
   </p>
