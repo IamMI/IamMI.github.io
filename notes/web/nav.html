@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Website Deployment</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+  
+  <style>
+    .divider {
+      border: none;
+      height: 1px;
+      background-color: #ccc; /* 可以换成浅灰、主题色 */
+      margin: 2rem 0;          /* 上下留白更好看 */
+      width: 100%;
+    }
+
+    :root {
+      --bg: #fdfdfd;
+      --primary: #2c3e50;
+      --accent: #3498db;
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      margin: 0;
+      /*font-family: 'Segoe UI', sans-serif;*/
+      font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
+      background: var(--bg);
+      color: var(--primary);
+      padding: 1rem;
+    }
+
+    main {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 1rem 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .container {
+      max-width: 600px;
+      width: 100%;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px var(--shadow);
+      padding: 2rem;
+      text-align: center;
+      animation: fadeIn 0.6s ease-in;
+    } 
+
+    h1 {
+      margin-top: 0;
+      font-size: 2rem;
+    }
+
+    p {
+      color: #555;
+      margin-top: auto;
+      margin-bottom: auto;
+      text-indent: 2em;
+      line-height: 2em;
+      font-size: large;
+    }
+
+    .custom-quote {
+      border-left: 4px solid #888; /* 左侧竖线 */
+      padding-left: 1em;
+      margin-left: 0;
+      color: #555;
+      font-style: italic;
+      background-color: #f9f9f9;
+    }
+
+    .custom-footer {
+      background-color: #f0f0f0;
+      color: var(--primary);
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-top: 4rem;
+      font-size: 0.9rem;
+      border-top: 1px solid #ccc;
+    }
+
+    .custom-footer .footer-link {
+      color: var(--accent);
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .custom-footer .footer-link:hover {
+      text-decoration: underline;
+    }
+
+    .custom-footer .footer-note {
+      display: block;
+      margin-top: 0.5rem;
+      color: #777;
+      font-size: 0.85rem;
+    }
+
+    .copy-btn {
+      font-size: 0.8rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.3rem;
+      cursor: pointer;
+    }
+
+
+
+
+  </style>
+</head>
+<body>
+  <!-- Meta Informations -->
+  <header class="meta-info">
+    <h1 class="title">
+      Website Deployment
+    </h1>
+  
+    <p>🕒 创建时间：2025 年 7 月 21 日</p>
+    <p>👤 创建人：IamMI</p>
+  </header>
+  <hr>
+
+  <!-- Content -->
+  <main>
+    <section>
+      <div>
+        <h2 class="fs-1 fw-bold">Introduction</h2>
+      </div>
+      <div>
+        <p>
+          网站技术对于技术工作者是非常重要的，它不仅是展示自己技术水平的平台，还有利于知识的交流。
+        </p>
+        <p>
+          由于网站制作已经成为一个比较成熟的领域。故在本章节中，笔者将分享
+          入门策略，并提供一些优秀的课程链接来辅助学习。
+        </p>
+        <p>
+          祝各位学习快乐🤗
+        </p>
+      </div>
+    </section>
+
+
+    <section>
+      <!-- subtitle -->
+      <div>
+        <h2 class="fs-1 fw-bold">How to learn?</h2>
+      </div>
+      <!--content -->
+      <div>
+        <p>
+          作为萌新小白，我们并不需要过于复杂的网站设计，所以这里我强烈推荐你们制作<strong>静态网站</strong>。
+          其涉及到的技术有 html、CSS 和 JaveScripts。基本只需要这三板斧就可以满足制作静态网站的所有条件。
+        </p>
+      </div>
+      <div>
+        <ol>
+          <li>
+            <p style="text-indent: 0em;">
+            学习简单的 html、css 和 javascripts 的内容；
+            <a href="https://www.bilibili.com/video/BV1BT4y1W7Aw?vd_source=286cf24d6fc9803e529dc0a6261e6d85">3小时前端入门教程（HTML+CSS+JS）</a>
+            </p>
+          </li>
+          <li><p style="text-indent: 0em;">开始实战</p></li>
+        </ol>
+      </div>
+      <!-- note -->
+      <div>
+        <blockquote class="custom-quote">
+          <p style="text-indent: 0em;">
+            对于网站制作、Python等工具的学习，我个人推荐的策略是迅速了解其基本框架（比如一个html文件由哪些部分组成）。
+            之后就是进行多次实战。我也建议读者在学习完其基本框架后，尝试制作自己的个人网站。
+          </p>
+        </blockquote>
+      </div>
+    </section>
+
+    <section>
+      <!-- subtitle -->
+      <div>
+        <h2 class="fs-1 fw-bold">Useful webs</h2>
+      </div>
+      <!-- content -->
+      <div>
+        <p>
+          快速学习完基本框架，刚开始实战时可能会经常卡壳，我们可以充分利用AI工具帮助我们编写。同时我也推荐一些网站供查询：
+        </p>
+      </div>
+      <div>
+        <ul>
+          <li>
+            <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML">MDN Web Docs</a>
+            <p style="text-indent: 0em;">该网站提供HTML和CSS等框架的资料，可以通过查询该文档，了解某些类的特定属性等；</p>
+          </li>
+          <li>
+            <a href="https://shields.io/">Shields</a>
+            <p style="text-indent: 0em;">该网站提供badges的制作，你可以根据上面的提示，制作自己的Github badges；</p>
+          </li>
+          <li>
+            <a href="https://getbootstrap.com/">Bootstrap</a>
+            <p style="text-indent: 0em;">该网站提供一整套HTML、CSS 和 JavaScript 组件，便于更快速、一致地构建美观、响应式的网站；</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <!-- subtitle -->
+      <div>
+        <h2 class="fs-1 fw-bold">Structure</h2>
+      </div>
+
+      <!-- content -->
+      <div class="mb-4">
+        <h3 class="fs-4 text-secondary">🧩 Layout</h3>
+        <p>
+          作为初学者，我们对于文本结构的布局并不熟悉，这里我提供一个简单且常见的框架：
+        </p>
+        <pre class="bg-light p-2 rounded font-monospace text-dark"><code>
+&lt;body&gt;
+&lt;header&gt;网站头部（Logo, 导航栏）&lt;/header&gt;
+&lt;nav&gt;导航菜单（可选）&lt;/nav&gt;
+&lt;main&gt;
+  &lt;!-- 页面主体内容 --&gt;
+  &lt;section&gt;一个独立的内容块&lt;/section&gt;
+  &lt;section&gt;另一个内容块&lt;/section&gt;
+&lt;/main&gt;
+&lt;footer&gt;页面底部（版权声明、社交链接）&lt;/footer&gt;
+&lt;/body&gt;
+        </code></pre>
+      </div>
+
+      <div class="mb-4">
+        <h3 class="fs-4 text-secondary">🧩 Template</h3>
+        <p>
+          很多时候，我们并不会选择从零开始搭建网站，笔者建议从网上搜索相关的模板，更改之后成为自己的网站。
+          这里推荐笔者个人网站的模板：<a href="https://github.com/senli1073/senli1073.github.io">Github Template</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+  
+  <!-- Footer -->
+  <footer class="custom-footer">
+    <div class="container">
+      <p class="mb-2">© 2025 IamMI. All rights reserved.</p>
+      <div class="mb-2">
+        <a href="https://github.com/IamMI" class="footer-link" target="_blank">GitHub</a>
+      </div>
+      <small class="footer-note">Built with ❤️ using Bootstrap</small>
+    </div>
+  </footer>
+
+
+  <!-- Copy key -->
+  <script src="copy.js"></script>
+</body>
+</html>
