@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Website Deployment</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #fdfdfd;
+      --primary: #2c3e50;
+      --accent: #3498db;
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      margin: 0;
+      /*font-family: 'Segoe UI', sans-serif;*/
+      font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
+      background: var(--bg);
+      color: var(--primary);
+      padding: 1rem;
+    }
+
+    main {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 1rem 1rem;
+      margin-bottom: 1rem;
+    }
+
+    
+    .container {
+      max-width: 600px;
+      width: 100%;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px var(--shadow);
+      padding: 2rem;
+      text-align: center;
+      animation: fadeIn 0.6s ease-in;
+    } 
+    
+
+    h1 {
+      margin-top: 0;
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 2.5rem; 
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      color: #6c757d;
+    }
+
+    p {
+      color: #555;
+      margin-top: auto;
+      margin-bottom: auto;
+      text-indent: 2em;
+      line-height: 2em;
+      font-size: large;
+    }
+    
+    .custom-quote {
+      border-left: 4px solid #888; 
+      padding-left: 1em;
+      margin-left: 0;
+      color: #555;
+      font-style: italic;
+      background-color: #f9f9f9;
+    }
+
+    /* Footer style */
+    .custom-footer {
+      background-color: #f0f0f0;
+      color: var(--primary);
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-top: 4rem;
+      font-size: 0.9rem;
+      border-top: 1px solid #ccc;
+    }
+
+    .custom-footer .footer-link {
+      color: var(--accent);
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .custom-footer .footer-link:hover {
+      text-decoration: underline;
+    }
+
+    .custom-footer .footer-note {
+      display: block;
+      margin-top: 0.5rem;
+      color: #777;
+      font-size: 0.85rem;
+    }
+    
+    /* Notes style */
+    .note-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border-left: 5px solid var(--accent);
+      background-color: #ffffff;
+      border-radius: 12px;
+    }
+
+    .note-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .note-card .card-title {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .note-card .card-text {
+      font-size: 0.95rem;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <!-- Meta Informations -->
+  <header>
+    <h1>
+      Reinforce Learning
+    </h1>
+  
+    <p>🕒 创建时间：2025 年 7 月 24 日</p>
+    <p>👤 创建人：IamMI</p>
+  </header>
+  <hr>
+
+  <!-- Content -->
+  <main>
+    <section>
+      <div>
+        <h2>Introduction</h2>
+      </div>
+      <div>
+        <p>
+          强化学习是当前LLM post-train的热门技术，并广泛应用到具身智能等多个领域，甚至被称为通往AGI的基石。
+        </p>
+        <p>
+          该章节总结了笔者的学习笔记，不一定适合大部分人的品味。故笔者在文章的末尾都会附上参考文献，这里还是建议读者以参考文献为主，笔者学习笔记为辅。
+        </p>
+        <p>
+          祝各位学习快乐🤗
+        </p>
+      </div>
+    </section>
+
+
+    <section>
+      <!-- subtitle -->
+      <div>
+        <h2>How to learn?</h2>
+      </div>
+      <!--content -->
+      <div>
+        <p>
+          强化学习是一个和数学紧密结合的领域，扎实的数学推导有助于后续的科研创新。但同时，过多的数学推导会浪费过多的时间和精力，
+          笔者在这里推荐两个链接。
+        </p>
+      </div>
+      <div>
+        <ol>
+          <li>
+            <p style="text-indent: 0em;">
+            <a href="https://spinningup.qiwihui.com/zh-cn/latest/spinningup/rl_intro.html">OpenAI Spinning Up</a>
+            <br>OpenAI发布的强化学习课程，兼具数学推导和代码实现，同时内容丰富，适合作为入门的主要平台
+            </p>
+          </li>
+          <li>
+            <p style="text-indent: 0em;">
+              <a href="https://github.com/MathFoundationRL/Book-Mathematical-Foundation-of-Reinforcement-Learning">强化学习的数学原理</a>
+              <br>西湖大学赵世钰老师的工作，非常严谨详细地阐述了强化学习的数学原理，在学习时，可以查询相关的证明
+            </p>
+          </li>
+        </ol>
+      </div>
+      <!-- note -->
+      <div>
+        <blockquote class="custom-quote">
+          <p style="text-indent: 0em;">
+            笔者的笔记都是以第一个链接为主，第二个链接为辅。
+          </p>
+        </blockquote>
+      </div>
+    </section>
+
+    <section>
+      <div>
+        <h2>Notes</h2>
+      </div>
+
+      <!-- 美化后的笔记列表 -->
+      <div class="row row-cols-1 g-3">
+        <div class="col">
+          <a href="1-introduction.html" class="note-card card shadow-sm p-3 text-decoration-none">
+            <div class="card-body">
+              <h5 class="card-title mb-2">📝 1 - Introduction</h5>
+              <p class="card-text text-muted">强化学习基础概述，引导理解智能体与环境的交互机制。</p>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
+
+
+  </main>
+  
+  <!-- Footer -->
+  <footer class="custom-footer">
+    <div class="container">
+      <p class="mb-2">© 2025 IamMI. All rights reserved.</p>
+      <div class="mb-2">
+        <a href="https://github.com/IamMI" class="footer-link" target="_blank">GitHub</a>
+      </div>
+      <small class="footer-note">Built with ❤️ using Bootstrap</small>
+    </div>
+  </footer>
+
+
+  <!-- Copy key -->
+  <script src="copy.js"></script>
+</body>
+</html>
