@@ -1,0 +1,911 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Verl Tutorials</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="240cc7d3-913d-80e0-8b0f-ddd33cbab158" class="page sans"><header><h1 class="page-title">Verl Tutorials</h1><p class="page-description"></p></header><div class="page-body"><nav id="240cc7d3-913d-80c6-89bc-c2ba248d40f3" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#240cc7d3-913d-80cd-a947-e95748098c82">📜 引言</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#240cc7d3-913d-80a6-9cc0-df9a83a17cc8">🧩 安装</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#240cc7d3-913d-8034-9ffe-ca85ffeed910">CUDA</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#240cc7d3-913d-80ac-a10c-f08d1126c5bd">cuDNN</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#241cc7d3-913d-800d-affa-d0f9f36abf8a">报错处理</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#241cc7d3-913d-8073-8d9a-de730a1c9be1">1. <code>libtinfo5</code> has no installation candidate</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#241cc7d3-913d-8097-a4ac-c56275681973">2. 安装CUDA之后， <code>nvcc -V</code> 没有动静</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#241cc7d3-913d-8004-a70a-f3c1df106556">3. 安装Apex需要Pytorch</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#243cc7d3-913d-80fb-87dc-f49f3b836ca1">🧩 QuickStart</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#243cc7d3-913d-804f-a6b4-c9a9d78e0827"><code>fit()</code> 解析</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#243cc7d3-913d-80ee-8529-f4a931fcffde">1. <code>generate_sequences</code></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#243cc7d3-913d-8083-91e5-d691e579eb97">2. <code>reward</code> </a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#243cc7d3-913d-8066-8e6c-c5aa8cb44c70">3. <code>old log prob</code></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#243cc7d3-913d-80a1-8de9-cf5f99eac04c">4. Compute Values</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#243cc7d3-913d-802f-a800-e4dd5eac6f7e">5. Actor &amp; Critic Update</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#243cc7d3-913d-801c-bcd2-ed72a1c88673">📋 参考文献</a></div></nav><p id="240cc7d3-913d-8051-abf7-dd7e18813692" class="">
+</p><p id="240cc7d3-913d-804a-b697-f72257c7b8c2" class="">
+</p><h1 id="240cc7d3-913d-80cd-a947-e95748098c82" class="">📜 引言</h1><p id="240cc7d3-913d-8051-87e2-d94790e889ec" class="">该章节记录笔者学习Verl的笔记</p><table id="240cc7d3-913d-80b1-beed-e6aca7cc016f" class="simple-table"><thead class="simple-table-header"><tr id="240cc7d3-913d-8077-99ed-eac28c46c78d"><th id="KpvN" class="simple-table-header-color simple-table-header" style="width:235.9970906575521px"><strong>创建人</strong></th><th id="&lt;zGq" class="simple-table-header-color simple-table-header" style="width:235.9970906575521px"><strong>创建时间</strong></th><th id="g&gt;`@" class="simple-table-header-color simple-table-header" style="width:235.9970906575521px"><strong>最后一次修改时间</strong></th></tr></thead><tbody><tr id="240cc7d3-913d-806a-94b8-f27db9bc4db4"><td id="KpvN" class="" style="width:235.9970906575521px">IamMI</td><td id="&lt;zGq" class="" style="width:235.9970906575521px">2025.7.30</td><td id="g&gt;`@" class="" style="width:235.9970906575521px">2025.8.2</td></tr></tbody></table><p id="240cc7d3-913d-8042-9e27-f168a64a8364" class="">当前对 LLM 进行微调的架构很多，比如 openrlhf、TRL 和 Verl，其中 Verl 是由字节开发的一款强化学习框架，功能全面但框架较重。该文章将记录笔者学习 Verl 的内容。</p><hr id="240cc7d3-913d-8044-827d-c123ef223d4d"/><p id="240cc7d3-913d-8051-9e10-f5da6ba44d91" class="">
+</p><h1 id="240cc7d3-913d-80a6-9cc0-df9a83a17cc8" class="">🧩 安装</h1><p id="240cc7d3-913d-80fb-b5e0-c2432db36473" class="">我们查看其手册，观察它所需的前置配置</p><blockquote id="240cc7d3-913d-8071-bfe7-fa6799aae605" class="">We need to install the following pre-requisites:<ul id="240cc7d3-913d-803c-b95b-cb51673ffbe0" class="bulleted-list"><li style="list-style-type:disc"><strong>CUDA</strong>: Version &gt;= 12.4</li></ul><ul id="240cc7d3-913d-8011-b892-d8ff012b6e01" class="bulleted-list"><li style="list-style-type:disc"><strong>cuDNN</strong>: Version &gt;= 9.8.0</li></ul><ul id="240cc7d3-913d-801f-b4f7-edb8c239f1c9" class="bulleted-list"><li style="list-style-type:disc"><strong>Apex</strong></li></ul></blockquote><p id="240cc7d3-913d-807b-a693-dfe098361907" class="">其中 CUDA 代表你的GPU驱动程序所支持的最高版本执行时；cuDNN是对应的深度学习加速库；Apex是一种混合精度训练工具库。</p><blockquote id="240cc7d3-913d-8081-84ce-ebd5658d53ec" class="">手册：<a href="https://verl.readthedocs.io/en/latest/start/install.html">https://verl.readthedocs.io/en/latest/start/install.html</a></blockquote><hr id="240cc7d3-913d-80a4-899a-e17ceedf9704"/><p id="240cc7d3-913d-805a-88e4-d9d11deb9a08" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">CUDA</summary><div class="indented"><p id="240cc7d3-913d-8020-9968-d1a941ce3db8" class="">根据文档上的指示，安装12.4版本的 toolkit，便于后续的cuda代码编译</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="240cc7d3-913d-800e-84ba-f1cadb048fe7" class="code code-wrap"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all"># change directory to anywher you like, in verl source code directory is not recommended
+wget https://developer.download.nvidia.com/compute/cuda/12.4.1/local_installers/cuda-repo-ubuntu2204-12-4-local_12.4.1-550.54.15-1_amd64.deb
+dpkg -i cuda-repo-ubuntu2204-12-4-local_12.4.1-550.54.15-1_amd64.deb
+cp /var/cuda-repo-ubuntu2204-12-4-local/cuda-*-keyring.gpg /usr/share/keyrings/
+apt-get update
+apt-get -y install cuda-toolkit-12-4
+update-alternatives --set cuda /usr/local/cuda-12.4</code></pre><p id="240cc7d3-913d-8015-82a3-c14ac687db78" class="">
+</p></div></details><p id="240cc7d3-913d-8099-87a4-e5bd8ef8edd9" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">cuDNN</summary><div class="indented"><p id="240cc7d3-913d-8008-9af3-f27e2c90e057" class="">安装深度学习加速库，便于训练时加速</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="240cc7d3-913d-80da-8206-fbb782387279" class="code code-wrap"><code class="language-Shell" style="white-space:pre-wrap;word-break:break-all"># change directory to anywher you like, in verl source code directory is not recommended
+wget https://developer.download.nvidia.com/compute/cudnn/9.8.0/local_installers/cudnn-local-repo-ubuntu2204-9.8.0_1.0-1_amd64.deb
+dpkg -i cudnn-local-repo-ubuntu2204-9.8.0_1.0-1_amd64.deb
+cp /var/cudnn-local-repo-ubuntu2204-9.8.0/cudnn-*-keyring.gpg /usr/share/keyrings/
+apt-get update
+apt-get -y install cudnn-cuda-12</code></pre></div></details><hr id="241cc7d3-913d-802b-980f-e03240995ca1"/><p id="241cc7d3-913d-803f-a7c8-ea4e04a8b25a" class="">
+</p><h2 id="241cc7d3-913d-800d-affa-d0f9f36abf8a" class="">报错处理</h2><p id="243cc7d3-913d-80ee-b8ba-e0f3ae0f409a" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">1. <code>libtinfo5</code> has no installation candidate</summary><div class="indented"><p id="241cc7d3-913d-8044-961d-ecb841072302" class="">按照教程安装 CUDA 12.4 时，会遇到报错</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="241cc7d3-913d-800d-b4bc-e7954e7244b4" class="code code-wrap"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+
+The following packages have unmet dependencies:
+ nsight-systems-2023.3.3 : Depends: libtinfo5 but it is not installable
+E: Unable to correct problems, you have held broken packages.</code></pre><p id="241cc7d3-913d-8068-8a34-d0004dbe5ea2" class="">但是在 Ubuntu 22.4 版本之上， <code>libtinfo5</code> 就已经无法正常下载了</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="241cc7d3-913d-80e8-a07d-d8ddfd1179c6" class="code code-wrap"><code class="language-Shell" style="white-space:pre-wrap;word-break:break-all">(base) xm@MI:~$ sudo apt -y install libtinfo5
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+Package libtinfo5 is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+E: Package &#x27;libtinfo5&#x27; has no installation candidate</code></pre><p id="243cc7d3-913d-80de-bcad-f5859e76843f" class="">我们手动下载即可</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="241cc7d3-913d-80aa-a6bc-ea8bbb943231" class="code code-wrap"><code class="language-Shell" style="white-space:pre-wrap;word-break:break-all">sudo apt update
+wget http://security.ubuntu.com/ubuntu/pool/universe/n/ncurses/libtinfo5_6.3-2ubuntu0.1_amd64.deb
+sudo apt install ./libtinfo5_6.3-2ubuntu0.1_amd64.deb</code></pre></div></details><p id="241cc7d3-913d-8001-8920-d7944dbff323" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">2. 安装CUDA之后， <code>nvcc -V</code> 没有动静</summary><div class="indented"><p id="241cc7d3-913d-8019-adc8-d59dba44888e" class="">程序 <code>nvcc</code> 没有添加到系统路径中，在 .bashrc 中加入 </p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="241cc7d3-913d-803b-923f-f85ad49ecf1a" class="code code-wrap"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">export PATH=/usr/local/cuda-12.4/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-12.4/lib64:$LD_LIBRARY_PATH</code></pre></div></details><p id="241cc7d3-913d-80ff-a01e-c477bbf7214f" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">3. 安装Apex需要Pytorch</summary><div class="indented"><p id="241cc7d3-913d-800b-a186-e5a8a65194d6" class="">遇到这样的报错</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="241cc7d3-913d-8083-8f1c-d883d17fa655" class="code code-wrap"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">(base) xm@MI:~/apex$ MAX_JOB=32 pip install -v --disable-pip-version-check --no-cache-dir --no-build-isolation --config-settings &quot;--build-option=--cpp_ext&quot; --config-settings &quot;--build-option=--cuda_ext&quot; ./
+Using pip 25.1 from /home/xm/anaconda3/lib/python3.13/site-packages/pip (python 3.13)
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Processing /home/xm/apex
+  Running command Preparing metadata (pyproject.toml)
+  Traceback (most recent call last):
+    File &quot;/home/xm/anaconda3/lib/python3.13/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py&quot;, line 389, in &lt;module&gt;
+      main()
+      ~~~~^^
+    File &quot;/home/xm/anaconda3/lib/python3.13/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py&quot;, line 373, in main
+      json_out[&quot;return_val&quot;] = hook(**hook_input[&quot;kwargs&quot;])
+                               ~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+    File &quot;/home/xm/anaconda3/lib/python3.13/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py&quot;, line 175, in prepare_metadata_for_build_wheel
+      return hook(metadata_directory, config_settings)
+    File &quot;/home/xm/anaconda3/lib/python3.13/site-packages/setuptools/build_meta.py&quot;, line 368, in prepare_metadata_for_build_wheel
+      self.run_setup()
+      ~~~~~~~~~~~~~~^^
+    File &quot;/home/xm/anaconda3/lib/python3.13/site-packages/setuptools/build_meta.py&quot;, line 313, in run_setup
+      exec(code, locals())
+      ~~~~^^^^^^^^^^^^^^^^
+    File &quot;&lt;string&gt;&quot;, line 11, in &lt;module&gt;
+  ModuleNotFoundError: No module named &#x27;torch&#x27;
+  error: subprocess-exited-with-error
+  
+  × Preparing metadata (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─&gt; See above for output.
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  full command: /home/xm/anaconda3/bin/python3.13 /home/xm/anaconda3/lib/python3.13/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py prepare_metadata_for_build_wheel /tmp/tmpvjqlpxbn
+  cwd: /home/xm/apex
+  Preparing metadata (pyproject.toml) ... error
+error: metadata-generation-failed
+
+× Encountered error while generating package metadata.
+╰─&gt; See above for output.
+
+note: This is an issue with the package mentioned above, not pip.
+hint: See above for details.</code></pre><p id="241cc7d3-913d-80b7-bcb8-e8c2683def7b" class="">这代表着 Apex 的编译需要 Pytorch 的参与。为此我们需要先执行下面的安装步骤</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="241cc7d3-913d-8085-93ac-d6e7687507c6" class="code code-wrap"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">conda create -n verl python==3.10
+conda activate verl
+# Make sure you have activated verl conda env
+# If you need to run with megatron
+bash scripts/install_vllm_sglang_mcore.sh
+# Or if you simply need to run with FSDP
+USE_MEGATRON=0 bash scripts/install_vllm_sglang_mcore.sh</code></pre><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="241cc7d3-913d-80fd-958d-f7d183e2b9b8"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><p id="241cc7d3-913d-80c4-90b8-db28f4a17474" class="">在国内网络中，执行 install_vllm_sglang_mcore.sh 容易安装成 cpu 版本的 Pytorch，建议修改</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="241cc7d3-913d-80cc-ad02-e25b5193214f" class="code code-wrap"><code class="language-Shell" style="white-space:pre-wrap;word-break:break-all">pip install --no-cache-dir &quot;vllm==0.8.5.post1&quot; &quot;torch==2.6.0&quot; &quot;torchvision==0.21.0&quot; &quot;torchaudio==2.6.0&quot; &quot;tensordict==0.6.2&quot; torchdata</code></pre><p id="241cc7d3-913d-8009-b4af-ea50d12907f5" class="">成</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="241cc7d3-913d-8047-be03-ffbcfecbd2ff" class="code code-wrap"><code class="language-Shell" style="white-space:pre-wrap;word-break:break-all">pip install --no-cache-dir &quot;vllm==0.8.5.post1&quot; &quot;tensordict==0.6.2&quot; torchdata
+pip install --no-cache-dir torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu124</code></pre></div></figure><p id="241cc7d3-913d-804a-995f-f49944800a86" class="">完成依赖库的配置后，再回来下载Apex</p></div></details><hr id="243cc7d3-913d-8064-ad3e-cd847623626c"/><p id="243cc7d3-913d-8079-8a90-f8ba9cca70c4" class="">
+</p><h1 id="243cc7d3-913d-80fb-87dc-f49f3b836ca1" class="">🧩 QuickStart</h1><p id="243cc7d3-913d-80ca-90fe-d495357ebcce" class="">根据手册上的提示，我们关注 <code>verl/trainer/main_ppo.py</code> ，它定义了 <strong>TaskRunner</strong> 类，该类可以完整负责一个模型的强化学习微调工作。同时该类用 Ray 包装成一个独立进程，可以实现非本地、异步调用执行。</p><p id="243cc7d3-913d-805d-ac98-fe8de6df9106" class=""><strong>TaskRunner </strong>类中又定义了多个 <strong>worker </strong>，它们分别是强化学习的几个重要组件</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="243cc7d3-913d-80f0-975b-c4d238abf858" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">[ TaskRunner (1 CPU) ]
+        |
+        ├──&gt; ActorRolloutWorker  (1 GPU)
+        ├──&gt; CriticWorker        (1 GPU)
+        ├──&gt; RewardModelWorker   (1 GPU)
+        └──&gt; RefPolicyWorker     (0 GPU)</code></pre><p id="243cc7d3-913d-80b7-a2a2-cc88d5b4fcb2" class="">这些组件也同样使用 Ray 进行包装，形成独立子进程。</p><hr id="243cc7d3-913d-80d4-a0bf-e91e3b9baf42"/><p id="243cc7d3-913d-8087-93d8-d8b56414a505" class="">
+</p><p id="243cc7d3-913d-800c-b726-efeeb7878dd9" class="">完成 worker 的包装后，下一步是加载数据集并开启训练，对应以下的代码</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="243cc7d3-913d-80c6-ada3-e68ddceed2a6" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all"># Initialize the PPO trainer.
+trainer = RayPPOTrainer(
+    config=config,
+    tokenizer=tokenizer,
+    processor=processor,
+    role_worker_mapping=role_worker_mapping,
+    resource_pool_manager=resource_pool_manager,
+    ray_worker_group_cls=ray_worker_group_cls,
+    reward_fn=reward_fn,
+    val_reward_fn=val_reward_fn,
+    train_dataset=train_dataset,
+    val_dataset=val_dataset,
+    collate_fn=collate_fn,
+    train_sampler=train_sampler,
+)
+# Initialize the workers of the trainer.
+trainer.init_workers()
+# Start the training process.
+trainer.fit()</code></pre><p id="243cc7d3-913d-8023-9f92-e2c8ec33bcf0" class="">关于 dataloader 以及 workers 的进一步包装，这里就不阐述了。我们接着探索 <code>trainer.fit()</code> 部分的代码逻辑。</p><hr id="243cc7d3-913d-8056-85fa-d345d1be19ef"/><p id="243cc7d3-913d-80df-9b9d-cab5a9599851" class="">
+</p><p id="243cc7d3-913d-80cd-882d-c1af27be6cfa" class=""><code>trainer.fit()</code> 函数的基本功能有</p><table id="243cc7d3-913d-80ee-818f-e66277e48c10" class="simple-table"><thead class="simple-table-header"><tr id="243cc7d3-913d-80cd-ac19-d473a741d1a9"><th id="ca`t" class="simple-table-header-color simple-table-header" style="width:235.66666666666666px">阶段</th><th id="&lt;Y|J" class="simple-table-header-color simple-table-header" style="width:235.66666666666666px">功能</th><th id="oAQ{" class="simple-table-header-color simple-table-header" style="width:235.66666666666666px">相关模块</th></tr></thead><tbody><tr id="243cc7d3-913d-80f8-a27c-cfde1d9822a7"><td id="ca`t" class="" style="width:235.66666666666666px"><strong>数据准备</strong></td><td id="&lt;Y|J" class="" style="width:235.66666666666666px">处理 dataloader batch，生成 gen_batch</td><td id="oAQ{" class="" style="width:235.66666666666666px"><code>batch.pop</code>, <code>repeat</code></td></tr><tr id="243cc7d3-913d-8075-aa4e-fc577058615e"><td id="ca`t" class="" style="width:235.66666666666666px"><strong>采样</strong></td><td id="&lt;Y|J" class="" style="width:235.66666666666666px">调用 <code>actor_rollout_wg</code> 或 <code>async_rollout_manager</code> 生成回应序列</td><td id="oAQ{" class="" style="width:235.66666666666666px"><code>.generate_sequences()</code></td></tr><tr id="243cc7d3-913d-809a-9b02-ef0d3558a12f"><td id="ca`t" class="" style="width:235.66666666666666px"><strong>奖励</strong></td><td id="&lt;Y|J" class="" style="width:235.66666666666666px">调用 reward model 或自定义函数计算分数</td><td id="oAQ{" class="" style="width:235.66666666666666px"><code>reward_fn</code>, <code>rm_wg</code></td></tr><tr id="243cc7d3-913d-80d6-b0e5-f8c966558e50"><td id="ca`t" class="" style="width:235.66666666666666px"><strong>优势估计</strong></td><td id="&lt;Y|J" class="" style="width:235.66666666666666px">使用 GAE 或 REMAX 等方法</td><td id="oAQ{" class="" style="width:235.66666666666666px"><code>compute_advantage()</code></td></tr><tr id="243cc7d3-913d-80df-821b-c0c376f2bf40"><td id="ca`t" class="" style="width:235.66666666666666px"><strong>训练 actor/critic</strong></td><td id="&lt;Y|J" class="" style="width:235.66666666666666px">调用对应的 worker 远程更新策略</td><td id="oAQ{" class="" style="width:235.66666666666666px"><code>update_actor</code>, <code>update_critic</code></td></tr><tr id="243cc7d3-913d-8040-829a-d1aa146f790a"><td id="ca`t" class="" style="width:235.66666666666666px"><strong>日志记录</strong></td><td id="&lt;Y|J" class="" style="width:235.66666666666666px">使用 <code>Tracking</code> 模块 + tqdm</td><td id="oAQ{" class="" style="width:235.66666666666666px"><code>logger.log</code>, <code>progress_bar.update</code></td></tr><tr id="243cc7d3-913d-80bc-a8cb-ddbf2dbbbeba"><td id="ca`t" class="" style="width:235.66666666666666px"><strong>验证/保存</strong></td><td id="&lt;Y|J" class="" style="width:235.66666666666666px">周期性进行验证和 checkpoint 保存</td><td id="oAQ{" class="" style="width:235.66666666666666px"><code>_validate()</code>, <code>_save_checkpoint()</code></td></tr></tbody></table><p id="243cc7d3-913d-806b-94ad-e5232a6e138b" class="">下面一个个分析。</p><p id="243cc7d3-913d-807d-9250-f96e494229e5" class="">
+</p><h2 id="243cc7d3-913d-804f-a6b4-c9a9d78e0827" class=""><code>fit()</code> 解析</h2><h3 id="243cc7d3-913d-80ee-8529-f4a931fcffde" class="">1. <code>generate_sequences</code></h3><ul id="243cc7d3-913d-80ed-911f-e161857f07c4" class="toggle"><li><details open=""><summary>对应代码</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="243cc7d3-913d-8095-9e3c-d2cb4a5a013f" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">with marked_timer(&quot;gen&quot;, timing_raw, color=&quot;red&quot;):
+    if not self.async_rollout_mode:
+        gen_batch_output = self.actor_rollout_wg.generate_sequences(gen_batch)
+    else:
+        gen_batch_output = self.async_rollout_manager.generate_sequences(gen_batch)
+    timing_raw.update(gen_batch_output.meta_info[&quot;timing&quot;])
+    gen_batch_output.meta_info.pop(&quot;timing&quot;, None)</code></pre></details></li></ul><p id="243cc7d3-913d-8027-a727-f1c1a6af120d" class="">这里使用了 Actor model 来进行轨迹 <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>=</mo><mo stretchy="false">{</mo><msub><mi>t</mi><mn>1</mn></msub><mo separator="true">,</mo><mtext> </mtext><msub><mi>t</mi><mn>2</mn></msub><mo separator="true">,</mo><mo>⋯</mo><mtext> </mtext><mo separator="true">,</mo><mtext> </mtext><msub><mi>t</mi><mi>T</mi></msub><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\tau=\{t_1, \ t_2, \cdots, \ t_T\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.1132em;">τ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace"> </span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">⋯</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace"> </span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">}</span></span></span></span></span><span>﻿</span></span>  采样。</p><p id="243cc7d3-913d-802c-98ca-c8e3fae8c98a" class="">
+</p><h3 id="243cc7d3-913d-8083-91e5-d691e579eb97" class="">2. <code>reward</code> </h3><ul id="243cc7d3-913d-8025-b319-d48e0a3abad8" class="toggle"><li><details open=""><summary>对应代码</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="243cc7d3-913d-8024-9361-e72cd79bd245" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">with marked_timer(&quot;reward&quot;, timing_raw, color=&quot;yellow&quot;):
+    # compute reward model score
+    if self.use_rm:
+        reward_tensor = self.rm_wg.compute_rm_score(batch)
+        batch = batch.union(reward_tensor)
+
+    if self.config.reward_model.launch_reward_fn_async:
+        future_reward = compute_reward_async.remote(data=batch, reward_fn=self.reward_fn)
+    else:
+        reward_tensor, reward_extra_infos_dict = compute_reward(batch, self.reward_fn)</code></pre></details></li></ul><p id="243cc7d3-913d-80f4-886c-faa2bad0173e" class="">这里计算了每一个输出 token 的 reward 值。</p><p id="243cc7d3-913d-805c-9ace-eb02d32834d6" class="">
+</p><h3 id="243cc7d3-913d-8066-8e6c-c5aa8cb44c70" class="">3. <code>old log prob</code></h3><ul id="243cc7d3-913d-8057-8710-d3e1e555b3b5" class="toggle"><li><details open=""><summary>对应代码</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="243cc7d3-913d-809e-88e1-fcaaa65ac434" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all"># recompute old_log_probs
+with marked_timer(&quot;old_log_prob&quot;, timing_raw, color=&quot;blue&quot;):
+    old_log_prob = self.actor_rollout_wg.compute_log_prob(batch)
+    entropys = old_log_prob.batch[&quot;entropys&quot;]
+    response_masks = batch.batch[&quot;response_mask&quot;]
+    loss_agg_mode = self.config.actor_rollout_ref.actor.loss_agg_mode
+    entropy_agg = agg_loss(loss_mat=entropys, loss_mask=response_masks, loss_agg_mode=loss_agg_mode)
+    old_log_prob_metrics = {&quot;actor/entropy&quot;: entropy_agg.detach().item()}
+    metrics.update(old_log_prob_metrics)
+    old_log_prob.batch.pop(&quot;entropys&quot;)
+    batch = batch.union(old_log_prob)
+
+    if &quot;rollout_log_probs&quot; in batch.batch.keys():
+        # TODO: we may want to add diff of probs too.
+        rollout_old_log_probs = batch.batch[&quot;rollout_log_probs&quot;]
+        actor_old_log_probs = batch.batch[&quot;old_log_probs&quot;]
+        attention_mask = batch.batch[&quot;attention_mask&quot;]
+        responses = batch.batch[&quot;responses&quot;]
+        response_length = responses.size(1)
+        response_mask = attention_mask[:, -response_length:]
+
+        rollout_probs = torch.exp(rollout_old_log_probs)
+        actor_probs = torch.exp(actor_old_log_probs)
+        rollout_probs_diff = torch.abs(rollout_probs - actor_probs)
+        rollout_probs_diff = torch.masked_select(rollout_probs_diff, response_mask.bool())
+        rollout_probs_diff_max = torch.max(rollout_probs_diff)
+        rollout_probs_diff_mean = torch.mean(rollout_probs_diff)
+        rollout_probs_diff_std = torch.std(rollout_probs_diff)
+        metrics.update(
+            {
+                &quot;training/rollout_probs_diff_max&quot;: rollout_probs_diff_max.detach().item(),
+                &quot;training/rollout_probs_diff_mean&quot;: rollout_probs_diff_mean.detach().item(),
+                &quot;training/rollout_probs_diff_std&quot;: rollout_probs_diff_std.detach().item(),
+            }
+        )</code></pre></details></li></ul><p id="243cc7d3-913d-8018-aba1-c631e671d663" class="">这里通过采样得到的轨迹 <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi></mrow><annotation encoding="application/x-tex">\tau</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.1132em;">τ</span></span></span></span></span><span>﻿</span></span>，计算出 <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mtext>old</mtext></msub><mo stretchy="false">(</mo><msub><mi>t</mi><mi>i</mi></msub><mi mathvariant="normal">∣</mi><mtext> </mtext><msub><mi>t</mi><mrow><mo>&lt;</mo><mi>i</mi></mrow></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\pi_{\text{old}}(t_i| \ t_{&lt;i})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">old</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">∣</span><span class="mspace"> </span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mrel mtight">&lt;</span><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1774em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span>。</p><p id="243cc7d3-913d-8002-a0b8-c47f4b9808c1" class="">
+</p><h3 id="243cc7d3-913d-80a1-8de9-cf5f99eac04c" class="">4. Compute Values</h3><ul id="243cc7d3-913d-8099-893b-f0ec23f0c41f" class="toggle"><li><details open=""><summary>对应代码</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="243cc7d3-913d-80d0-8a00-f50af9095b39" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all"># compute values
+if self.use_critic:
+    with marked_timer(&quot;values&quot;, timing_raw, color=&quot;cyan&quot;):
+        values = self.critic_wg.compute_values(batch)
+        batch = batch.union(values)
+
+with marked_timer(&quot;adv&quot;, timing_raw, color=&quot;brown&quot;):
+    # we combine with rule-based rm
+    reward_extra_infos_dict: dict[str, list]
+    if self.config.reward_model.launch_reward_fn_async:
+        reward_tensor, reward_extra_infos_dict = ray.get(future_reward)
+    batch.batch[&quot;token_level_scores&quot;] = reward_tensor
+
+    if reward_extra_infos_dict:
+        batch.non_tensor_batch.update({k: np.array(v) for k, v in reward_extra_infos_dict.items()})
+
+    # compute rewards. apply_kl_penalty if available
+    if self.config.algorithm.use_kl_in_reward:
+        batch, kl_metrics = apply_kl_penalty(
+            batch, kl_ctrl=self.kl_ctrl_in_reward, kl_penalty=self.config.algorithm.kl_penalty
+        )
+        metrics.update(kl_metrics)
+    else:
+        batch.batch[&quot;token_level_rewards&quot;] = batch.batch[&quot;token_level_scores&quot;]
+
+    # compute advantages, executed on the driver process
+
+    norm_adv_by_std_in_grpo = self.config.algorithm.get(
+        &quot;norm_adv_by_std_in_grpo&quot;, True
+    )  # GRPO adv normalization factor
+
+    batch = compute_advantage(
+        batch,
+        adv_estimator=self.config.algorithm.adv_estimator,
+        gamma=self.config.algorithm.gamma,
+        lam=self.config.algorithm.lam,
+        num_repeat=self.config.actor_rollout_ref.rollout.n,
+        norm_adv_by_std_in_grpo=norm_adv_by_std_in_grpo,
+        config=self.config.algorithm,
+    )</code></pre><p id="243cc7d3-913d-805f-ba4e-ea91749d8691" class="">
+</p></details></li></ul><p id="243cc7d3-913d-80b7-9a3b-c2ac6f118874" class=""><code>compute_advantage()</code> 里编写了优势函数 <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo stretchy="false">(</mo><mi>s</mi><mo separator="true">,</mo><mi>a</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">A(s,a)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">A</span><span class="mopen">(</span><span class="mord mathnormal">s</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">a</span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span> 的计算方法，包括 GAE 和 GRPO 两种，我们可以再此基础上修改，从而实现新的 reward 计算算法。</p><p id="243cc7d3-913d-8047-840a-fb0b147507ab" class="">
+</p><h3 id="243cc7d3-913d-802f-a800-e4dd5eac6f7e" class="">5. Actor &amp; Critic Update</h3><ul id="243cc7d3-913d-80b6-94d6-f9d8e10794cb" class="toggle"><li><details open=""><summary>对应代码</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="243cc7d3-913d-8041-a671-d70cbe369460" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all"># update critic
+if self.use_critic:
+    with marked_timer(&quot;update_critic&quot;, timing_raw, color=&quot;pink&quot;):
+        critic_output = self.critic_wg.update_critic(batch)
+    critic_output_metrics = reduce_metrics(critic_output.meta_info[&quot;metrics&quot;])
+    metrics.update(critic_output_metrics)
+
+# implement critic warmup
+if self.config.trainer.critic_warmup &lt;= self.global_steps:
+    # update actor
+    with marked_timer(&quot;update_actor&quot;, timing_raw, color=&quot;red&quot;):
+        batch.meta_info[&quot;multi_turn&quot;] = self.config.actor_rollout_ref.rollout.multi_turn.enable
+        actor_output = self.actor_rollout_wg.update_actor(batch)
+    actor_output_metrics = reduce_metrics(actor_output.meta_info[&quot;metrics&quot;])
+    metrics.update(actor_output_metrics)</code></pre></details></li></ul><p id="243cc7d3-913d-804c-bab8-e35766d6d36f" class="">深挖可以找到 Loss 的实现区域，位于 <code>verl/trainer/ppo/core_algos.py</code> 中，当前有</p><ul id="243cc7d3-913d-8094-88fa-fcda84a14cf2" class="bulleted-list"><li style="list-style-type:disc"><code>compute_policy_loss</code> </li></ul><ul id="243cc7d3-913d-807f-8daf-ca8be0f6d495" class="bulleted-list"><li style="list-style-type:disc"><code>compute_policy_loss_vanilla</code></li></ul><p id="243cc7d3-913d-8008-bfda-ca83eaacc132" class="">等。可以在这里自定义 Loss。</p><hr id="243cc7d3-913d-80cd-8f79-fbf3aff2f1d7"/><p id="243cc7d3-913d-8099-9e56-e2505539feae" class="">
+</p><h1 id="243cc7d3-913d-801c-bcd2-ed72a1c88673" class="">📋 参考文献</h1><ol type="1" id="243cc7d3-913d-801b-9bb5-f2fff3973e9a" class="numbered-list" start="1"><li>Verl Document<p id="243cc7d3-913d-808d-9541-f8c30d6e359f" class=""><a href="https://verl.readthedocs.io/en/latest/start/install.html">https://verl.readthedocs.io/en/latest/start/install.html</a></p></li></ol><p id="243cc7d3-913d-80e0-9f46-ff1b94e54912" class="">
+</p><p id="243cc7d3-913d-8043-a1de-e223204a1e66" class="">
+</p><p id="243cc7d3-913d-80be-afc0-c5b2d2845975" class="">
+</p><p id="243cc7d3-913d-8096-80fb-d198b2e86ba0" class="">
+</p><p id="243cc7d3-913d-805f-bd2d-d857e9a7dd52" class="">
+</p><p id="243cc7d3-913d-8029-bf6b-d3cbfbe2b355" class="">
+</p><p id="243cc7d3-913d-80ef-b3a0-e4f2ce9d28ad" class="">
+</p><p id="243cc7d3-913d-8012-a90a-fae6bb03f4d8" class="">
+</p><p id="243cc7d3-913d-8039-8f01-d6f7cca3bff3" class="">
+</p><p id="243cc7d3-913d-807a-93fc-f7cacba5fff7" class="">
+</p><p id="243cc7d3-913d-809b-b6e0-efb2ac1af1e5" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
