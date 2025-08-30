@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Diffusion Model</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #fdfdfd;
+      --primary: #2c3e50;
+      --accent: #3498db;
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      margin: 0;
+      /*font-family: 'Segoe UI', sans-serif;*/
+      font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
+      background: var(--bg);
+      color: var(--primary);
+      padding: 1rem;
+    }
+
+    main {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 1rem 1rem;
+      margin-bottom: 1rem;
+    }
+
+    
+    .container {
+      max-width: 600px;
+      width: 100%;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px var(--shadow);
+      padding: 2rem;
+      text-align: center;
+      animation: fadeIn 0.6s ease-in;
+    } 
+    
+
+    h1 {
+      margin-top: 0;
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 2.5rem; 
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      color: #6c757d;
+    }
+
+    p {
+      color: #555;
+      margin-top: auto;
+      margin-bottom: auto;
+      text-indent: 2em;
+      line-height: 2em;
+      font-size: large;
+    }
+    
+    .custom-quote {
+      border-left: 4px solid #888; 
+      padding-left: 1em;
+      margin-left: 0;
+      color: #555;
+      font-style: italic;
+      background-color: #f9f9f9;
+    }
+
+    /* Footer style */
+    .custom-footer {
+      background-color: #f0f0f0;
+      color: var(--primary);
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-top: 4rem;
+      font-size: 0.9rem;
+      border-top: 1px solid #ccc;
+    }
+
+    .custom-footer .footer-link {
+      color: var(--accent);
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .custom-footer .footer-link:hover {
+      text-decoration: underline;
+    }
+
+    .custom-footer .footer-note {
+      display: block;
+      margin-top: 0.5rem;
+      color: #777;
+      font-size: 0.85rem;
+    }
+    
+    /* Notes style */
+    .note-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border-left: 5px solid var(--accent);
+      background-color: #ffffff;
+      border-radius: 12px;
+    }
+
+    .note-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .note-card .card-title {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .note-card .card-text {
+      font-size: 0.95rem;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <!-- Meta Informations -->
+  <header>
+    <h1>
+      Diffusion
+    </h1>
+  
+    <p>🕒 创建时间：2025 年 8 月 30 日</p>
+    <p>👤 创建人：IamMI</p>
+  </header>
+  <hr>
+
+  <!-- Content -->
+  <main>
+    <section>
+      <div>
+        <h2>Introduction</h2>
+      </div>
+      <div>
+        <p>
+          扩散模型是一种结合高质量生成和严谨数学基础的模型，常广泛应用于图像生成领域（LLM领域也有dllm）
+        </p>
+        <p>
+          在该章节中，我们不仅要深入推导diffusion的数学原理，还需要结合相关的深度学习实践，观察该模型所独有的
+          Pattern。
+        </p>
+        <p>
+          祝各位学习快乐🤗
+        </p>
+      </div>
+    </section>
+
+
+    <section>
+      <!-- subtitle -->
+      <div>
+        <h2>Paper Lists</h2>
+      </div>
+      <!--content -->
+      <div>
+        <p>
+          当前扩散模型还没有出现一份主流的教材，我们更多的是搜索并阅读经典论文，并结合相关的代码实践来学习。
+          这里列举一些经典的论文，仅供参考。
+        </p>
+        <ol>
+          <li>
+            <p style="text-indent: 0em;">
+            <a href="https://arxiv.org/abs/2006.11239">Denoising Diffusion Probabilistic Models</a>
+            <br>DDPM -- 扩散模型的开山之作，最早整理阐述了diffusion的基本框架
+            </p>
+          </li>
+          <li>
+            <p style="text-indent: 0em;">
+            <a href="https://arxiv.org/abs/2208.11970">Understanding Diffusion Models: A Unified Perspective</a>
+            <br>Google工程师写的文章，从VAE开始，一步步完成推导，比DDPM更适合新手入门
+            </p>
+          </li>
+        </ol>
+      </div>
+      
+      
+    </section>
+
+    <section>
+      <div>
+        <h2>Notes</h2>
+      </div>
+
+      <!-- 美化后的笔记列表 -->
+      <div class="row row-cols-1 g-3">
+        <!-- 0 Basic Concepts -->
+        <div class="col">
+          <a href="0-Basic/Basic_Concepts.html" class="note-card card shadow-sm p-3 text-decoration-none">
+            <div class="card-body">
+              <h5 class="card-title mb-2">📝 0 - Basic Concepts</h5>
+              <p class="card-text text-muted">DDPM的数学推导以及算法实现</p>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
+
+
+  </main>
+  
+  <!-- Footer -->
+  <footer class="custom-footer">
+    <div class="container">
+      <p class="mb-2">© 2025 IamMI. All rights reserved.</p>
+      <div class="mb-2">
+        <a href="https://github.com/IamMI" class="footer-link" target="_blank">GitHub</a>
+      </div>
+      <small class="footer-note">Built with ❤️ using Bootstrap</small>
+    </div>
+  </footer>
+
+
+  <!-- Copy key -->
+  <script src="copy.js"></script>
+</body>
+</html>
