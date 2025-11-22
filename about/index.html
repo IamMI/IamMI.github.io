@@ -1,490 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Academic Webpage" />
+    <meta name="author" content="IamMI" />
+    <title id="title"></title>
+
+    <!-- Icon -->
+    <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Google fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap"
+        rel="stylesheet" />
+
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link type="text/css" href="static/css/styles.css" rel="stylesheet" />
+    <link type="text/css" href="static/css/main.css" rel="stylesheet" />
+
+    <!-- Bootstrap core JS-->
+    <script type="text/javascript" src="static/js/bootstrap.bundle.min.js"></script>
+
+    <!-- For Compatability -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     
-    <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
-    <meta name="description" content="about" />
-    <meta name="hexo-theme-A4" content="v2.0.0" />
-    <link rel="alternate icon" type="image/webp" href="/img/favicon.webp">
-    <title>IamMI&#39;s Blogs</title>
+    <!-- Markdown -->
+    <script type="text/javascript" src="static/js/marked.min.js"></script>
 
-    
-        
-<link rel="stylesheet" href="/css/highlight/style1.css">
-
-        
-<link rel="stylesheet" href="/css/reset.css">
-
-        
-<link rel="stylesheet" href="/css/markdown.css">
-
-        
-<link rel="stylesheet" href="/css/fonts.css">
- 
-         <!--注意：首页既不是post也不是page-->
-        
-        
-        
-<link rel="stylesheet" href="/css/ui.css">
- 
-        
-<link rel="stylesheet" href="/css/style.css">
-
-
-        
-            <!--返回顶部css-->
-            
-<link rel="stylesheet" href="/css/returnToTop.css">
-
-            
-<link rel="stylesheet" href="/css/unicons.css">
-
-        
-        
-            <!--目录-->
-            
-<link rel="stylesheet" href="/css/toc.css">
-
-        
-    
-
-    
-        
-<link rel="stylesheet" href="/css/returnToLastPage.css">
-
-    
-    
-   
-<link rel="stylesheet" href="/css/lightgallery-bundle.min.css">
-
-
-   
-        
-<link rel="stylesheet" href="/css/custom.css">
-
-    
-    <link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/lxgwwenkai/dist/LXGWWenKai-Regular/result.css' /> 
-    <!-- Mermaid Support -->
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.min.js"></script>
+    <!-- Mathematics -->
     <script>
-    mermaid.initialize({
-        startOnLoad: true,
-        theme: 'default'
-    });
+        // See https://docs.mathjax.org/en/latest/index.html for more details.
+        MathJax = {
+            tex: {
+                packages: {},              // extensions to use
+                inlineMath: [              // start/end delimiter pairs for in-line math
+                    ['$', '$'],
+                    ['\\(', '\\)']
+                ],
+                displayMath: [             // start/end delimiter pairs for display math
+                    ['$$', '$$'],
+                    ['\\[', '\\]']
+                ],
+                processEscapes: false,      // use \$ to produce a literal dollar sign
+                processEnvironments: true, // process \begin{xxx}...\end{xxx} outside math mode
+                processRefs: true,         // process \ref{...} outside of math mode
+                digits: /^(?:[0-9]+(?:\{,\}[0-9]{3})*(?:\.[0-9]*)?|\.[0-9]+)/,    // pattern for recognizing numbers
+                tags: 'all',              // or 'ams' or 'all'
+                tagSide: 'right',          // side for \tag macros
+                tagIndent: '0.8em',        // amount to indent tags
+                useLabelIds: true,         // use label name rather than tag for ids
+                maxMacros: 10000,          // maximum number of macro substitutions per expression
+                maxBuffer: 5 * 1024,       // maximum size for the internal TeX string (5K)
+                // baseURL:                   // URL for use with links to tags (when there is a <base> tag in effect)
+                // (document.getElementsByTagName('base').length === 0) ? '' : String(document.location).replace(/#.*$/, ''),
+                formatError:               // function called when TeX syntax errors occur
+                    (jax, err) => jax.formatError(err)
+            }
+        };
     </script>
-
-<meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
-  direction: ltr;
-}
-
-mjx-container[jax="SVG"] > svg {
-  overflow: visible;
-}
-
-mjx-container[jax="SVG"][display="true"] {
-  display: block;
-  text-align: center;
-  margin: 1em 0;
-}
-
-mjx-container[jax="SVG"][justify="left"] {
-  text-align: left;
-}
-
-mjx-container[jax="SVG"][justify="right"] {
-  text-align: right;
-}
-
-g[data-mml-node="merror"] > g {
-  fill: red;
-  stroke: red;
-}
-
-g[data-mml-node="merror"] > rect[data-background] {
-  fill: yellow;
-  stroke: none;
-}
-
-g[data-mml-node="mtable"] > line[data-line] {
-  stroke-width: 70px;
-  fill: none;
-}
-
-g[data-mml-node="mtable"] > rect[data-frame] {
-  stroke-width: 70px;
-  fill: none;
-}
-
-g[data-mml-node="mtable"] > .mjx-dashed {
-  stroke-dasharray: 140;
-}
-
-g[data-mml-node="mtable"] > .mjx-dotted {
-  stroke-linecap: round;
-  stroke-dasharray: 0,140;
-}
-
-g[data-mml-node="mtable"] > svg {
-  overflow: visible;
-}
-
-[jax="SVG"] mjx-tool {
-  display: inline-block;
-  position: relative;
-  width: 0;
-  height: 0;
-}
-
-[jax="SVG"] mjx-tool > mjx-tip {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-mjx-tool > mjx-tip {
-  display: inline-block;
-  padding: .2em;
-  border: 1px solid #888;
-  font-size: 70%;
-  background-color: #F8F8F8;
-  color: black;
-  box-shadow: 2px 2px 5px #AAAAAA;
-}
-
-g[data-mml-node="maction"][data-toggle] {
-  cursor: pointer;
-}
-
-mjx-status {
-  display: block;
-  position: fixed;
-  left: 1em;
-  bottom: 1em;
-  min-width: 25%;
-  padding: .2em .4em;
-  border: 1px solid #888;
-  font-size: 90%;
-  background-color: #F8F8F8;
-  color: black;
-}
-
-foreignObject[data-mjx-xml] {
-  font-family: initial;
-  line-height: normal;
-  overflow: visible;
-}
-
-.MathJax path {
-  stroke-width: 3;
-}
-
-mjx-container[display="true"] {
-  overflow: auto hidden;
-}
-
-mjx-container[display="true"] + br {
-  display: none;
-}
-</style></head>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
-    
-        <style>
-            .index-main{
-                max-width:  880px;
-            }
-        </style>
+    <!-- Core JS-->
+    <script type="text/javascript" src="static/js/scripts.js"></script>
+    <script type="text/javascript" src="static/js/js-yaml.min.js"></script>
 
-    
-    
+    <style>
+        a {
+            color: #333;
+            text-decoration: none;
+        }
 
+        a:hover {
+            color: #007bff; 
+            text-decoration: underline;
+        }
 
+        .link-card {
+            background-color: #f8f9fa;
+            border-radius: 0.75rem;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+            transition: 0.2s ease;
+            text-decoration: none;
+            color: #212529;
+            display: flex;
+            align-items: center;
+        }
 
-    
+        .link-card:hover {
+            background-color: #e9ecef;
+            transform: translateY(-2px);
+            color: #0d6efd;
+        }
 
-    
-    
+        .link-card i {
+            font-size: 1.5rem;
+            margin-right: 0.75rem;
+            color: #0d6efd;
+        }
 
+        .link-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
 
+        .link-desc {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
 
-
-    
-    
-
-
-    <body>
-        <script src="/js/darkmode-js.min.js"></script>
-        
-        <script>
-            const options = {
-                bottom: '40px', // default: '32px'
-                right: 'unset', // default: '32px'
-                left: '42px', // default: 'unset'
-                time: '0.3s', // default: '0.3s'
-                mixColor: '#fff', // default: '#fff'
-                backgroundColor: ' #e4e4e4 ',  // default: '#fff'
-                buttonColorDark: '#100f2c',  // default: '#100f2c'
-                buttonColorLight: '#fff', // default: '#fff'
-                saveInCookies: true, // default: true,
-                label: '🌓', // default: ''
-                autoMatchOsTheme: true // default: true
-            }
-            const darkmode = new Darkmode(options);
-            darkmode.showWidget();
-        </script>
-        
-        
-            
-        
-        <div class="paper">
-
-            
-
-            
-                <div class="shadow-drop-2-bottom paper-main">
-                    
+    </style>
 
 
-<div class="header">
-    <div class="header-container">
-        <style>
-            .header-img {
-                width: 56px;
-                height: auto;
-                object-fit: cover; /* 保持图片比例 */
-                transition: transform 0.3s ease-in-out; 
-                border-radius: 0; 
-            }
-            
-        </style>
-        <img 
-            alt="^-^" 
-            cache-control="max-age=86400" 
-            class="header-img" 
-            src="/img/favicon.webp" 
-        />
-        <div class="header-content">
-            <a class="logo" href="/">IamMI&#39;s Blogs</a> 
-            <span class="description"></span> 
+</head>
+
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="header navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
+        <div class="container px-5">
+            <a id="page-top-title" class="navbar-brand fw-bold" href="#page-top">IamMI</a>
+            <!-- <a href="#page-top"><img src="static/assets/img/CUMT_LOGO.svg" style="width: 11rem;"></a> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                MENU
+                <i class="bi-list"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link me-lg-3" href="#page-top">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-lg-3" href="#publications">PUBLICATIONS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-lg-3" href="#awards">AWARDS</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Top Section -->
+    <section class="top-section" style="background-image: url('static/assets/img/preference.jpg');">
+        <div class="top-section-content">
+            <div class="container px-5">
+                <h2 id="top-section-bg-text" class="text-white display-3 lh-1 font-alt">
+                </h2>
+            </div>
+        </div>
+    </section>
+    <!-- Top Section -->
+
+    <!-- Photo -->
+    <div class="container px-5">
+        <div id="avatar">
+            <img class="shadow" src="static/assets/img/avatar.jpg">
         </div>
     </div>
+    <!-- Photo -->
     
-   
-    <ul class="nav">
-        
-            
-                <li><a href="/">首页</a></li>
-            
-        
-            
-                <li><a href="/list/">文章</a></li>
-            
-        
-            
-                <li><i>
-                    
-                        <a style="color: #4e7dde;" href="/about/">关于</a>
-                    
-                </i></li>
-            
-        
-            
-                <li><a href="/tags/">标签</a></li>
-            
-        
-            
-                <li><a href="/categories/">分类</a></li>
-            
-        
-    </ul>
-</div>
+    <!-- Home -->
+    <section class="bg-gradient-primary-to-secondary-light mt5 md5" id="home">
+        <div class="container px-5">
+            <header>
+                <h2 id="home-subtitle"> </h2>
+                <!-- <span class="bi bi-list"></span> -->
+            </header>
+            <div class="main-body" id="home-md"></div>
+        </div>
+    </section>
+    <!-- Home -->
 
-                    
-                    
+    <!-- Publications -->
+    <section class="bg-gradient-primary-to-secondary-gray mt5 md5" id="publications">
+        <div class="container px-5">
+            <header>
+                <h2 id="publications-subtitle"><i class="bi bi-file-text-fill"></i>&nbsp;PUBLICATIONS</h2>
+            </header>
+            <div class="main-body" id="publications-md"></div>
+        </div>
+    </section>
+    <!-- Publications  -->
 
-                    
-                    
+    <!-- Awards -->
+    <section class="bg-gradient-primary-to-secondary-light mt5 md5" id="awards">
+        <div class="container px-5">
+            <header>
+                <h2 id="awards-subtitle"><i class="bi bi-award-fill"></i>AWARDS </h2>
+            </header>
+            <div class="main-body" id="awards-md"></div>
+        </div>
+    </section>
+    <!-- Awards -->
 
-                    <!--说明是文章post页面-->
-                    
-                        <div class="post-main">
-    
 
-    
-
-    
-
-    <div class="post-md">
-        
-            
-        
-        <div class=".article-gallery"><p>Here is about&#x2F;index.md.</p>
-</div>
-    </div>
-
-    <div class="post-meta">
-        <i>
-        
-        </i>
-    </div>
-    <br>
-    
-    
-        
-            
-    
-            <div class="post-footer-pre-next">
-                
-
-                
+    <!-- Footer-->
+    <footer class="bg-bottom text-center py-5">
+        <div class="container px-5">
+            <div class="text-white-50 small">
+                <div id="copyright-text" class="mb-2"></div>
+                <a id="github-link" href="https://github.com/IamMI">Github</a>
+                <span class="mx-1">&middot;</span>
+                <a id="license-link" href="https://github.com/IamMI/IamMI.github.io/blob/main/LICENSE">License</a>
             </div>
-    
-        
-    
+        </div>
+    </footer>
 
-    
-        
+</body>
 
-     
-</div>
-
-
-
-
-                    
-
-                    <div class="footer">
-    
-        <span> 
-            © 1949-2025 China 
-
-            
-                
-
-            
-        </span>
-       
-    
-</div>
-
-
-
-<!--这是指一条线往下的内容-->
-<div class="footer-last">
-    
-            <span>We Must Know, We Will Know.</span>
-            
-                <span class="footer-last-span-right"><i>本站由<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/index.html">Hexo</a>驱动｜使用<a target="_blank" rel="noopener" href="https://github.com/HiNinoJay/hexo-theme-A4">Hexo-theme-A4</a>主题</i></span>
-            
-    
-</div>
-
-
-    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-
-    <!--目录-->
-    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" ></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript" ></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tocify/1.9.0/javascripts/jquery.tocify.min.js" type="text/javascript" ></script>
-        
-<script src="/js/toc.js"></script>
-
-    
-
-    
-<script src="/js/randomHeaderContent.js"></script>
-
-    <!--回到顶部按钮-->
-    
-        
-<script src="/js/returnToTop.js"></script>
-
-    
-
-    
-        
-<script src="/js/returnToLastPage.js"></script>
-
-    
-
-
-
-
-
-<script src="/js/lightgallery/lightgallery.umd.min.js"></script>
-
-
-
-<script src="/js/lightgallery/plugins/lg-thumbnail.umd.min.js"></script>
-
-
-
-<script src="/js/lightgallery/plugins/lg-fullscreen.umd.min.js"></script>
-
-
-<script src="/js/lightgallery/plugins/lg-autoplay.umd.min.js"></script>
-
-
-<script src="/js/lightgallery/plugins/lg-zoom.umd.min.js"></script>
-
-
-<script src="/js/lightgallery/plugins/lg-rotate.umd.min.js"></script>
-
-
-<script src="/js/lightgallery/plugins/lg-paper.umd.min.js"></script>
-
-
-
-
-<script type="text/javascript">
-     
-    if (typeof lightGallery !== "undefined") {
-        var options1 = {
-            selector: '.gallery-item',
-            plugins: [lgThumbnail, lgFullscreen, lgAutoplay, lgZoom, lgRotate, lgPager], // 启用插件
-            thumbnail: true,          // 显示缩略图
-            zoom: true,               // 启用缩放功
-            rotate: true,             // 启用旋转功能能
-            autoplay: true,        // 启用自动播放功能
-            fullScreen: true,      // 启用全屏功能
-            pager: false, //页码,
-            zoomFromOrigin: true,   // 从原始位置缩放
-            actualSize: true,       // 启用查看实际大小的功能
-            enableZoomAfter: 300,    // 延迟缩放，确保图片加载完成后可缩放
-        };
-        lightGallery(document.getElementsByClassName('.article-gallery')[0], options1); // 修复选择器
-    }
-    
-</script>
-
-
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> 
-
-                </div>
-            
-            
-                <!-- 回到顶部的按钮-->
-                <div class="progress-wrap shadow-drop-2-bottom">
-                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
-                    </svg>
-                </div>
-            
-            
-                <!-- 返回的按钮-->
-                <div class="return-to-last-progress-wrap shadow-drop-2-bottom">
-                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
-                    </svg>
-                </div>
-            
-    </body>
 </html>
-<script src="/js/emojiHandler.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        wrapEmojis('.paper');
-    });
-</script>
